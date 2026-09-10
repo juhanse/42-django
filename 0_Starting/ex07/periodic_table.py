@@ -29,13 +29,16 @@ def generate_html(elements):
         "    <meta charset=\"UTF-8\">",
         "    <title>Periodic Table</title>",
         "    <style>",
-        "        body { font-family: Arial, sans-serif; }",
+        "        body { font-family: Arial, sans-serif; background-color: #f4f4f9; }",
         "        table { border-collapse: collapse; margin: 20px auto; }",
-        "        td { border: 1px solid #333; padding: 10px; vertical-align: top; width: 120px; height: 140px; }",
-        "        .empty { border: none; }",
-        "        h1 { margin: 0 0 10px 0; font-size: 1.1em; text-align: center; }",
-        "        ul { list-style-type: none; padding: 0; margin: 0; font-size: 0.9em; }",
-        "        li { margin-bottom: 3px; }",
+        "        td { border: 1px solid #333; padding: 5px; text-align: center; vertical-align: middle; width: 85px; height: 100px; box-sizing: border-box; background-color: white; box-shadow: 1px 1px 3px rgba(0,0,0,0.1); }",
+        "        .empty { border: none; background-color: transparent; box-shadow: none; }",
+        "        h4 { margin: 0; font-size: 0.8em; text-align: left; color: #555; }",
+        "        h1 { margin: 5px 0; font-size: 1.8em; font-weight: bold; color: #222; }",
+        "        ul { list-style-type: none; padding: 0; margin: 0; }",
+        "        li { margin-bottom: 2px; }",
+        "        .molar { font-size: 0.75em; color: #555; }",
+        "        .name { font-size: 0.65em; font-weight: bold; color: #777; text-transform: uppercase; }",
         "    </style>",
         "</head>",
         "<body>",
@@ -62,12 +65,11 @@ def generate_html(elements):
             
         cell = (
             f"            <td>\n"
-            f"                <h1>{element['name']}</h1>\n"
+            f"                <h4>{element['number']}</h4>\n"
+            f"                <h1>{element['small']}</h1>\n"
             f"                <ul>\n"
-            f"                    <li>No {element['number']}</li>\n"
-            f"                    <li>{element['small']}</li>\n"
-            f"                    <li>{element['molar']}</li>\n"
-            f"                    <li>{element['electron']} electron</li>\n"
+            f"                    <li class=\"name\">{element['name']}</li>\n"
+            f"                    <li class=\"molar\">{element['molar']}</li>\n"
             f"                </ul>\n"
             f"            </td>"
         )
